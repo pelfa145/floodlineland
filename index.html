@@ -234,11 +234,11 @@
 
         .hero h1 {
             color: white;
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
             font-weight: 800;
-            line-height: 1.05;
+            line-height: 1.15;
             margin-bottom: 2rem;
-            letter-spacing: -1.5px;
+            letter-spacing: -1px;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
@@ -426,7 +426,7 @@
             width: 6px;
             height: 100%;
             background: var(--alert-red);
-            transition: width 0.3s ease;
+            transition: width 0.3s ease, background 0.3s ease;
             z-index: -1;
         }
 
@@ -437,7 +437,7 @@
 
         .problem-card:hover::before {
             width: 100%;
-            opacity: 0.03;
+            background: rgba(220, 38, 38, 0.03);
         }
 
         .problem-icon {
@@ -558,11 +558,17 @@
             text-align: center;
             border: 1px solid rgba(0, 0, 0, 0.05);
             transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
         }
 
         .team-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--tech-blue);
         }
 
         .team-avatar {
@@ -583,6 +589,29 @@
 
         .team-card:hover .team-avatar {
             transform: scale(1.1) rotate(5deg);
+        }
+
+        .fb-hint {
+            position: absolute;
+            bottom: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--tech-blue);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .team-card:hover .fb-hint {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         /* Animations */
@@ -745,7 +774,7 @@
                 gap: 1.5rem;
             }
             .stat-value { font-size: 1.8rem; }
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.2rem; }
             .target-content { padding: 3rem 2rem; }
             .cost-highlight { padding: 3rem 1.5rem; }
             .nav-links { display: none; }
@@ -789,7 +818,7 @@
             <div class="hero-badge">
                 Capstone Research Project 2025-2026
             </div>
-            <h1>Reliable IoT <span>Flood Detection</span> & Immediate Response Interface</h1>
+            <h1>FLOODLINE: Real-Time IoT Based Flood Detection and Contingency Alert Interface via Progressive Web Application</h1>
             <p class="hero-subtitle">Empowering communities with sub-second latency flood monitoring and fail-safe local alerts for maximum safety.</p>
             <div class="hero-cta">
                 <a href="https://pelfa145.github.io/floodlineapp/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
@@ -802,8 +831,8 @@
             </div>
             <div class="stats-bar">
                 <div class="stat-item">
-                    <div class="stat-value" data-target="1">0</div>
-                    <div class="stat-label">Latency (s)</div>
+                    <div class="stat-value" data-target="1" data-prefix="<">&lt;1s</div>
+                    <div class="stat-label">Latency</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" data-target="100">0</div>
@@ -952,26 +981,54 @@
             <p class="section-desc">A multidisciplinary team of students from Dumingag Senior High School dedicated to disaster resilience.</p>
         </div>
         <div class="team-grid">
-            <div class="team-card reveal">
+            <a href="https://www.facebook.com/piaaasereht" target="_blank" rel="noopener noreferrer" class="team-card reveal">
                 <div class="team-avatar">PA</div>
                 <h4>Pia Theresa A. Dela Raiz</h4>
                 <p>Lead Researcher</p>
-            </div>
-            <div class="team-card reveal">
+                <span class="fb-hint">Press to open profile</span>
+            </a>
+            <a href="https://www.facebook.com/jadon.paran.7" target="_blank" rel="noopener noreferrer" class="team-card reveal">
                 <div class="team-avatar">JP</div>
                 <h4>Jadon Cyrus T. Paran</h4>
                 <p>Hardware & PWA Developer</p>
-            </div>
-            <div class="team-card reveal">
+                <span class="fb-hint">Press to open profile</span>
+            </a>
+            <a href="https://www.facebook.com/steve.ombo" target="_blank" rel="noopener noreferrer" class="team-card reveal">
                 <div class="team-avatar">SP</div>
                 <h4>Steven O. Poculan</h4>
                 <p>Systems Architect</p>
-            </div>
-            <div class="team-card reveal">
+                <span class="fb-hint">Press to open profile</span>
+            </a>
+            <a href="https://www.facebook.com/marianisabel.paller.1" target="_blank" rel="noopener noreferrer" class="team-card reveal">
                 <div class="team-avatar">MP</div>
                 <h4>Marian Isabel A. Paller</h4>
                 <p>UI/UX Designer</p>
-            </div>
+                <span class="fb-hint">Press to open profile</span>
+            </a>
+            <a href="https://www.facebook.com/princess.eve.316693" target="_blank" rel="noopener noreferrer" class="team-card reveal">
+                <div class="team-avatar">PB</div>
+                <h4>Princess Eve L. Borling</h4>
+                <p>Data Analyst</p>
+                <span class="fb-hint">Press to open profile</span>
+            </a>
+            <a href="https://www.facebook.com/jan.aly.352741" target="_blank" rel="noopener noreferrer" class="team-card reveal">
+                <div class="team-avatar">AB</div>
+                <h4>Alyanna Heart L. Batestil</h4>
+                <p>Communications</p>
+                <span class="fb-hint">Press to open profile</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61581459250246" target="_blank" rel="noopener noreferrer" class="team-card reveal">
+                <div class="team-avatar">JP</div>
+                <h4>Jess A. Panganoron</h4>
+                <p>Field Testing</p>
+                <span class="fb-hint">Press to open profile</span>
+            </a>
+            <a href="https://www.facebook.com/stephanie.malalay.5" target="_blank" rel="noopener noreferrer" class="team-card reveal">
+                <div class="team-avatar">SM</div>
+                <h4>Stefanie B. Malalay</h4>
+                <p>Documentation</p>
+                <span class="fb-hint">Press to open profile</span>
+            </a>
         </div>
     </section>
 
@@ -1011,13 +1068,11 @@
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    // Add a slight stagger to cards in the same grid
                     const delay = index % 3 * 100;
                     setTimeout(() => {
                         entry.target.classList.add('active');
                     }, delay);
                     
-                    // If it's a stat item, trigger count animation
                     if (entry.target.classList.contains('stat-item')) {
                         const statValue = entry.target.querySelector('.stat-value');
                         if (statValue && !statValue.classList.contains('counted')) {
@@ -1029,13 +1084,14 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal, .problem-card, .feature-card, .team-card, .spec-card, .stat-item').forEach(el => {
-            el.classList.add('reveal'); // Ensure all have reveal class
+            el.classList.add('reveal');
             revealObserver.observe(el);
         });
 
         // Count Animation for Stats
         function animateCount(el) {
             const target = parseInt(el.getAttribute('data-target'));
+            const prefix = el.getAttribute('data-prefix') || '';
             if (isNaN(target)) return;
             
             const duration = 2000;
@@ -1045,16 +1101,16 @@
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
                 
-                // Ease out cubic
                 const easeProgress = 1 - Math.pow(1 - progress, 3);
                 const currentCount = Math.floor(easeProgress * target);
                 
-                el.innerText = target > 1000 ? currentCount.toLocaleString() : currentCount;
+                let displayText = target > 1000 ? currentCount.toLocaleString() : currentCount;
+                el.innerText = prefix + displayText + (target === 1 ? 's' : '');
                 
                 if (progress < 1) {
                     requestAnimationFrame(update);
                 } else {
-                    el.innerText = target.toLocaleString();
+                    el.innerText = prefix + target.toLocaleString() + (target === 1 ? 's' : '');
                     el.classList.add('counted');
                 }
             }
@@ -1064,16 +1120,16 @@
         // Smooth scroll for links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const target = document.querySelector(targetId);
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                if (targetId && targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
