@@ -526,12 +526,106 @@
             margin-bottom: 5rem;
             position: relative;
             z-index: 1;
-            transition: transform 0.4s ease;
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .cost-highlight:hover {
             transform: scale(1.02);
             border-color: var(--cyan);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Cost Breakdown Tooltip */
+        .cost-breakdown {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -45%) scale(0.95);
+            width: 90%;
+            max-width: 450px;
+            background: #0a1628;
+            border: 1px solid var(--cyan);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(6, 182, 212, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .cost-breakdown.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: all;
+        }
+
+        .cost-breakdown h5 {
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+            padding-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .cost-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cost-table td {
+            padding: 0.7rem 0;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cost-table td:last-child {
+            text-align: right;
+            font-weight: 700;
+            color: white;
+        }
+
+        .cost-table .total-row {
+            border-top: 2px solid var(--cyan);
+            border-bottom: none;
+        }
+
+        .cost-table .total-row td {
+            padding-top: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--cyan);
+            font-weight: 800;
+        }
+
+        .hover-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            background: var(--cyan);
+            width: 0%;
+            border-radius: 0 0 32px 32px;
+            z-index: 5;
+            transition: width 1.5s linear;
+        }
+
+        .cost-highlight:hover .hover-progress:not(.filled) {
+            width: 100%;
+        }
+
+        .hover-progress.filled {
+            width: 100% !important;
+            transition: none !important;
         }
 
         .cost-value {
@@ -657,7 +751,7 @@
             text-align: center;
         }
 
-        /* Specs Grid */
+        /* Specs Grid Hover Details */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -667,43 +761,97 @@
         .spec-card {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .spec-card:hover {
             background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            border-color: var(--cyan);
         }
 
-        .spec-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(6, 182, 212, 0.2);
-            border-radius: 12px;
+        .spec-card-content {
+            transition: all 0.5s ease;
+        }
+
+        .spec-card:hover .spec-card-content {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        .spec-detail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.1));
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .spec-card:hover .spec-detail {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .spec-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(6, 182, 212, 0.2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .spec-card:hover .spec-icon {
+            background: var(--cyan);
         }
 
         .spec-icon svg {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             fill: var(--cyan);
+            transition: all 0.3s ease;
+        }
+
+        .spec-card:hover .spec-icon svg {
+            fill: var(--deep-blue);
         }
 
         .spec-card h4 {
             color: white;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
         }
 
         .spec-card p {
             color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         /* Alert Levels */
@@ -934,32 +1082,79 @@
                 <h2 class="section-title" style="color: white;">Economical & Scalable</h2>
                 <p class="section-desc" style="color: rgba(255, 255, 255, 0.7);">High-performance safety doesn't have to be expensive. Our prototype proves it.</p>
             </div>
-            <div class="cost-highlight reveal">
+            <div class="cost-highlight reveal" id="costHighlight">
                 <p class="cost-label" style="color: rgba(255, 255, 255, 0.6); font-weight: 600; text-transform: uppercase;">Total Prototype Investment</p>
                 <p class="cost-value">₱3,777</p>
                 <p class="cost-note" style="color: var(--cyan); font-weight: 500;">~90% more cost-effective than commercial alternatives</p>
+                <div class="hover-progress" id="costProgress"></div>
+                
+                <div class="cost-breakdown" id="costBreakdown">
+                    <h5>FLOODLINE System Breakdown</h5>
+                    <table class="cost-table">
+                        <tr><td>Non-Contact Liquid Sensors (3pcs)</td><td>₱1650</td></tr>
+                        <tr><td>ESP-32 Starter Kit</td><td>₱843</td></tr>
+                        <tr><td>Jumper Wires and other Wirings</td><td>₱200</td></tr>
+                        <tr><td>Piezo Buzzer</td><td>₱59</td></tr>
+                        <tr><td>Buck Converter</td><td>₱62</td></tr>
+                        <tr><td>Lithium Battery</td><td>₱388</td></tr>
+                        <tr><td>Arduino Uno Microcontroller</td><td>₱455</td></tr>
+                        <tr><td>Physical Tower Materials</td><td>₱120</td></tr>
+                        <tr class="total-row"><td>Total</td><td>₱ 3,777</td></tr>
+                    </table>
+                </div>
             </div>
             <div class="specs-grid">
+                <!-- Card 1: Battery -->
                 <div class="spec-card reveal">
-                    <div class="spec-icon">
-                        <svg viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM11 20v-5.5H9L13 7v5.5h2L11 20z"/></svg>
+                    <div class="spec-card-content">
+                        <div class="spec-icon">
+                            <svg viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM11 20v-5.5H9L13 7v5.5h2L11 20z"/></svg>
+                        </div>
+                        <h4>7.4V Battery System</h4>
+                        <p>Dual 18650 Lithium cells</p>
                     </div>
-                    <h4>7.4V Battery System</h4>
-                    <p>Dual 18650 Lithium cells for reliable continuous operation.</p>
+                    <div class="spec-detail">
+                        Supplies stable power to microcontrollers, sensors, and alert components, ensuring continuous operation even during power interruptions.
+                    </div>
                 </div>
+                <!-- Card 2: Sensors -->
                 <div class="spec-card reveal">
-                    <div class="spec-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div class="spec-card-content">
+                        <div class="spec-icon">
+                            <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                        </div>
+                        <h4>Precision Sensors</h4>
+                        <p>3x XKC-Y26-V Non-contact</p>
                     </div>
-                    <h4>Hardware Interface</h4>
-                    <p>Custom-built LED Tower & High-Decibel Buzzer system.</p>
+                    <div class="spec-detail">
+                        Detects rising water levels through casing without touching the liquid, identifying flood levels accurately while reducing damage risk.
+                    </div>
                 </div>
+                <!-- Card 3: Connectivity -->
                 <div class="spec-card reveal">
-                    <div class="spec-icon">
-                        <svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+                    <div class="spec-card-content">
+                        <div class="spec-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+                        </div>
+                        <h4>Dual-Band Sync</h4>
+                        <p>ESP32 WiFi + Firebase</p>
                     </div>
-                    <h4>Dual-Band Sync</h4>
-                    <p>WiFi-connected ESP32 providing sub-second cloud updates.</p>
+                    <div class="spec-detail">
+                        Processes sensor data locally and transmits real-time status wirelessly to the PWA via Firebase, enabling sub-second cloud updates.
+                    </div>
+                </div>
+                <!-- Card 4: Local Alert -->
+                <div class="spec-card reveal">
+                    <div class="spec-card-content">
+                        <div class="spec-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        </div>
+                        <h4>Hardware Interface</h4>
+                        <p>LED Tower + Piezo Buzzer</p>
+                    </div>
+                    <div class="spec-detail">
+                        Provides immediate visual and audible warnings within the community, ensuring safety awareness even without internet or mobile access.
+                    </div>
                 </div>
             </div>
         </div>
@@ -1152,6 +1347,39 @@
                     navLinks.style.padding = '2rem';
                     navLinks.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
                 }
+            });
+        }
+
+        // Cost Breakdown Timer and Click Logic
+        const costHighlight = document.getElementById('costHighlight');
+        const costBreakdown = document.getElementById('costBreakdown');
+        const costProgress = document.getElementById('costProgress');
+        let hoverTimer;
+
+        if (costHighlight && costBreakdown) {
+            const showBreakdown = () => {
+                costBreakdown.classList.add('visible');
+                costProgress.classList.add('filled');
+            };
+
+            const hideBreakdown = () => {
+                costBreakdown.classList.remove('visible');
+                costProgress.classList.remove('filled');
+            };
+
+            costHighlight.addEventListener('mouseenter', () => {
+                hoverTimer = setTimeout(showBreakdown, 1500);
+            });
+
+            costHighlight.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimer);
+                hideBreakdown();
+            });
+
+            costHighlight.addEventListener('click', (e) => {
+                // Prevent event bubbling if necessary
+                clearTimeout(hoverTimer);
+                showBreakdown();
             });
         }
     </script>
