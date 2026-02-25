@@ -665,7 +665,30 @@
             border-color: var(--tech-blue);
         }
 
+        .team-avatar-wrapper {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+            border: 3px solid var(--tech-blue);
+            overflow: visible;
+            position: relative;
+            background: white;
+        }
+
         .team-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            transition-delay: 1s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-avatar-initial {
             width: 100px;
             height: 100px;
             background: linear-gradient(135deg, var(--tech-blue), var(--cyan));
@@ -678,11 +701,16 @@
             font-weight: 800;
             color: white;
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
-            transition: all 0.4s ease;
+            transition: transform 0.4s ease;
+            transition-delay: 1s;
         }
 
         .team-card:hover .team-avatar {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(2);
+        }
+
+        .team-card:hover .team-avatar-initial {
+            transform: scale(2);
         }
 
         .fb-hint {
@@ -1177,49 +1205,49 @@
         </div>
         <div class="team-grid">
             <a href="https://www.facebook.com/piaaasereht" target="_blank" rel="noopener noreferrer" class="team-card reveal">
-                <div class="team-avatar">PA</div>
+                <div class="team-avatar-wrapper"><img src="piatheresa.jpg" alt="Pia Theresa A. Dela Raiz" class="team-avatar"></div>
                 <h4>Pia Theresa A. Dela Raiz</h4>
                 <p>Lead Researcher</p>
                 <span class="fb-hint">Press to open profile</span>
             </a>
             <a href="https://www.facebook.com/jadon.paran.7" target="_blank" rel="noopener noreferrer" class="team-card reveal">
-                <div class="team-avatar">JP</div>
+                <div class="team-avatar-wrapper"><img src="jadon.jpg" alt="Jadon Cyrus T. Paran" class="team-avatar"></div>
                 <h4>Jadon Cyrus T. Paran</h4>
                 <p>Hardware & PWA Developer</p>
                 <span class="fb-hint">Press to open profile</span>
             </a>
             <a href="https://www.facebook.com/steve.ombo" target="_blank" rel="noopener noreferrer" class="team-card reveal">
-                <div class="team-avatar">SP</div>
+                <div class="team-avatar-wrapper"><img src="steve.jpg" alt="Steven O. Poculan" class="team-avatar"></div>
                 <h4>Steven O. Poculan</h4>
                 <p>Systems Architect</p>
                 <span class="fb-hint">Press to open profile</span>
             </a>
             <a href="https://www.facebook.com/marianisabel.paller.1" target="_blank" rel="noopener noreferrer" class="team-card reveal">
-                <div class="team-avatar">MP</div>
+                <div class="team-avatar-wrapper"><img src="marian.jpg" alt="Marian Isabel A. Paller" class="team-avatar"></div>
                 <h4>Marian Isabel A. Paller</h4>
                 <p>UI/UX Designer</p>
                 <span class="fb-hint">Press to open profile</span>
             </a>
             <a href="https://www.facebook.com/princess.eve.316693" target="_blank" rel="noopener noreferrer" class="team-card reveal">
-                <div class="team-avatar">PB</div>
+                <div class="team-avatar-wrapper"><img src="princess eve.jpg" alt="Princess Eve L. Borling" class="team-avatar"></div>
                 <h4>Princess Eve L. Borling</h4>
                 <p>Data Analyst</p>
                 <span class="fb-hint">Press to open profile</span>
             </a>
             <a href="https://www.facebook.com/jan.aly.352741" target="_blank" rel="noopener noreferrer" class="team-card reveal">
-                <div class="team-avatar">AB</div>
+                <div class="team-avatar-wrapper"><img src="alyannaheart.jpg" alt="Alyanna Heart L. Batestil" class="team-avatar"></div>
                 <h4>Alyanna Heart L. Batestil</h4>
                 <p>Communications</p>
                 <span class="fb-hint">Press to open profile</span>
             </a>
             <a href="https://www.facebook.com/profile.php?id=61581459250246" target="_blank" rel="noopener noreferrer" class="team-card reveal">
-                <div class="team-avatar">JP</div>
+                <div class="team-avatar-wrapper"><img src="jess.jpg" alt="Jess A. Panganoron" class="team-avatar"></div>
                 <h4>Jess A. Panganoron</h4>
                 <p>Field Testing</p>
                 <span class="fb-hint">Press to open profile</span>
             </a>
             <a href="https://www.facebook.com/stephanie.malalay.5" target="_blank" rel="noopener noreferrer" class="team-card reveal">
-                <div class="team-avatar">SM</div>
+                <div class="team-avatar-initial">SM</div>
                 <h4>Stefanie B. Malalay</h4>
                 <p>Documentation</p>
                 <span class="fb-hint">Press to open profile</span>
