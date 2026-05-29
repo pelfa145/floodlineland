@@ -74,18 +74,19 @@ FLOODLINE combines IoT hardware with a cloud-connected PWA to deliver:
 | Piezo Buzzer | ₱59 |
 | **Total** | **₱3,777** |
 
-## Team
+## Team & Responsibilities
 
-| Name | Role |
-|------|------|
-| Pia Theresa A. Dela Raiz | Lead Researcher |
-| Jadon Cyrus T. Paran | Hardware & PWA Developer |
-| Steven O. Poculan | Systems Architect |
-| Marian Isabel A. Paller | UI/UX Designer |
-| Princess Eve L. Borling | Data Analyst |
-| Alyanna Heart L. Batestil | Communications |
-| Jess A. Panganoron | Field Testing |
-| Stefanie B. Malalay | Documentation |
+### Technical Development
+*   **Jadon Cyrus T. Paran** — System Integration, Hardware Assembly, Firmware Programming, Cloud Database Architecture, PWA & UI/UX Development
+
+### Research & Documentation
+*   **Pia Theresa A. Dela Raiz** — Lead Research Writer & Manuscript Editor
+*   **Stefanie B. Malalay** — Co-Writer & Technical Documentation Coordinator
+*   **Steven O. Poculan** — Research Methodologist & Literature Reviewer
+*   **Marian Isabel A. Paller** — Data Presentation & Formatting Specialist
+*   **Princess Eve L. Borling** — Statistical Data Analyst & Data Transcription
+*   **Alyanna Heart L. Batestil** — Research Correspondence & Presentation Coordinator
+*   **Jess A. Panganoron** — Field Survey Manager & Testing Logistics
 
 ## Live Demo
 
