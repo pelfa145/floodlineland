@@ -77,7 +77,7 @@ FLOODLINE combines IoT hardware with a cloud-connected PWA to deliver:
 ## Team & Responsibilities
 
 ### Technical Development
-*   **Jadon Cyrus T. Paran** — System Integration, Hardware Assembly, Firmware Programming, Cloud Database Architecture, PWA & UI/UX Development
+*   **Jadon Cyrus T. Paran(ME)** — System Integration, Hardware Assembly, Firmware Programming, Cloud Database Architecture, PWA & UI/UX Development
 
 ### Research & Documentation
 *   **Pia Theresa A. Dela Raiz** — Lead Research Writer & Manuscript Editor
