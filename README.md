@@ -8,6 +8,17 @@ Official landing page and project showcase for **FLOODLINE**: a real-time IoT-ba
 
 Capstone Research Project 2025–2026 | Dumingag Senior High School
 
+---
+
+## 🏆 Awards & Recognition
+
+This project was highly recognized during the Capstone Research presentations, receiving the following accolades:
+*   **Best in Capstone Innovation** — For outstanding implementation of low-cost, high-impact IoT technology.
+*   **Best in Demonstration** — For flawless real-time hardware-to-software synchronization and sub-second latency testing.
+*   **Best in Oral Presentation** — For exceptional defense, clarity, and articulation of the research study.
+
+---
+
 ## The Problem
 
 Communities near Dumingag, Zamboanga del Sur face critical gaps in flood monitoring:
